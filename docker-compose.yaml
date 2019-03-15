@@ -1,0 +1,19 @@
+---
+version: '2'
+services:
+  bigsdb-web:
+    image: bigsdb-web
+    build:
+      context: ./bigsdb-web
+      dockerfile: Dockerfile
+    depends_on:
+      - bigsdb-postgres
+    ports:
+      - 8080:80
+  bigsdb-postgres:
+    image: bigsdb-postgres
+    build:
+      context: ./bigsdb-postgres
+      dockerfile: Dockerfile
+    ports:
+      - 5432
